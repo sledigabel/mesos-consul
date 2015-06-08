@@ -35,7 +35,7 @@ func (c *Consul) newAgent(address string) *consulapi.Client {
 	config := consulapi.DefaultConfig()
 
 	config.Address = fmt.Sprintf("%s:%s", c.config.Address, c.config.RegistryPort)
-	log.info("consul: ", config.Address)
+	log.Printf("consul: ", config.Address)
 
 	if c.config.RegistryToken != "" {
 		log.Printf("setting token to %s", c.config.RegistryToken)
