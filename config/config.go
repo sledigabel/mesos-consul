@@ -18,6 +18,7 @@ type SSL struct {
 }
 
 type Config struct {
+	Address		string
 	Refresh		time.Duration
 	RegistryAuth	*Auth
 	RegistryPort	string
@@ -38,6 +39,7 @@ func DefaultConfig() *Config {
 			Verify: true,
 		},
 		RegistryToken:	"",
+		Address: "127.0.0.1",
 		Zk:		"zk://127.0.0.1:2181/mesos",
 	}
 }
