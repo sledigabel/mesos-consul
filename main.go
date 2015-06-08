@@ -51,7 +51,8 @@ func parseFlags(args []string) (*config.Config, error) {
 	}
 
 	flags.BoolVar(&doHelp,			"help", false, "")
-	flags.StringVar(&c.LogLevel,		"log-level", "WARN", "")
+	flags.StringVar(&c.LogLevel,		"log-level", "WARN", ""
+	flags.StringVar(&c.Address,		"address", "127.0.0.1", "")
 	flags.DurationVar(&c.Refresh,		"refresh", time.Minute, "")
 	flags.StringVar(&c.RegistryPort,	"registry-port", "8500", "")
 	flags.Var((*config.AuthVar)(c.RegistryAuth),	"registry-auth", "")
@@ -104,6 +105,7 @@ Options:
   --registry-ssl-cacert		Validate server certificate against this CA
 				certificate file list
   --registry-token=<token>	Set registry ACL token
+	--address=<address> sets the Consul endpoint
   --zk=<address>		Zookeeper path to Mesos
 				(default zk://127.0.0.1:2181/mesos)
 `
